@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <link type="image/x-icon" href="/img/favicon.ico" rel="shortcut icon" />
+    <link type="Image/x-icon" href="/img/favicon.ico" rel="icon" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <title>Parikmag</title>
+  </head>
+  <body>
+    <header id="header">
+      <div class="header__logo" id="logo"><p>Parikmag</p></div>
+      <nav id="myTopnav">
+        <div class="topnav">
+          <a href="#welcome" class="nav_link">Главная</a>
+          <a href="#work" class="nav_link">Продукция</a>
+          <a href="#about" class="nav_link">О нас</a>
+          <a href="#reviews" class="nav_link">Отзывы</a>
+          <a href="#form" class="nav_link">Контакты</a>
+          <a href="#openModal" class="basket_link" onclick="displayBasket()">
+            <img src="./img/basket.png" alt="корзина" class="basket_img" />
+          </a>
+          <span id="menu" class="icon">&#9776;</span>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="main__welcome" id="welcome">
+        <h1>WELCOME ON</h1>
+        <span class="mycompany">Parikmag</span>
+      </div>
+
+      <div class="main__work" id="work">
+        <div class="wrapper">
+          <h1>Продукция</h1>
+          <p class="main__work-p">
+            <i
+              >Предоставляем широчайший ассортимент, ручаемся за качество, выбор
+              нашего магазина - лучший выбор в вашей жизни</i
+            >
+          </p>
+        </div>
+
+        <div class="gallery">
+          <div class="line">
+            <div class="card" id="0">
+              <div class="front">
+                <img src="img/2.jpg" alt="" />
+                <p class="back_text">
+                  Andis машинка для стрижки + шейвер Cordless Combo 75025
+                </p>
+                <span>399.00 руб.</span>
+                <button class="card__button">В корзину</button>
+              </div>
+            </div>
+            <div class="card" id="1">
+              <div class="front">
+                <img src="img/3.jpg" alt="" />
+                <p class="back_text">
+                  Andis машинка для стрижки BTF3 SLIMLINE Li-Ion T-Blade
+                  окантовочная 25225
+                </p>
+                <span>166.25 руб.</span>
+                <button class="card__button">В корзину</button>
+              </div>
+            </div>
+            <div class="card" id="2">
+              <div class="front">
+                <img src="img/4.jpg" alt="" />
+
+                <p class="back_text">
+                  Andis машинка для стрижки Cordless USPro Li 73010
+                </p>
+                <span>272.65 руб</span>
+                <button class="card__button">В корзину</button>
+              </div>
+            </div>
+            <div class="card" id="3">
+              <div class="front">
+                <img src="img/5.jpg" alt="" />
+                <p class="back_text">
+                  Andis машинка для стрижки Cordless USPro Li Andis
+                </p>
+                <span>266.00 руб.</span>
+                <button class="card__button">В корзину</button>
+              </div>
+            </div>
+          </div>
+          <div class="line">
+            <div class="card" id="4">
+              <div class="front">
+                <img src="img/12.jpg" alt="" />
+
+                <p class="back_text">
+                  Брашинг Hercules деревянный, темная, щетина+нейлон, d54мм.
+                </p>
+                <span>33.52 руб.</span>
+                <button class="card__button">В корзину</button>
+              </div>
+            </div>
+            <div class="card" id="5">
+              <div class="front">
+                <img src="img/13.jpg" alt="" />
+
+                <p class="back_text">
+                  Брашинг Hercules деревянный, темная, щетина+нейлон, d66мм.
+                </p>
+                <span>39.10 руб.</span>
+                <button class="card__button">В корзину</button>
+              </div>
+            </div>
+            <div class="card" id="6">
+              <div class="front">
+                <img src="img/14.jpg" alt="" />
+
+                <p class="back_text">
+                  Брашинг Hercules деревянный, темная, щетина+нейлон, d74мм.
+                </p>
+                <span>40.96 руб.</span>
+                <button class="card__button">В корзину</button>
+              </div>
+            </div>
+            <div class="card" id="7">
+              <div class="front">
+                <img src="img/18.jpg" alt="" />
+
+                <p class="back_text">
+                  Брашинг JAGUAR керамика, ТРЕУГОЛЬНИК, d.53
+                </p>
+                <span>14.90 руб.</span>
+                <button class="card__button">В корзину</button>
+              </div>
+            </div>
+          </div>
+          <div class="line">
+            <div class="card" id="8">
+              <div class="front">
+                <img src="img/29.jpg" alt="" />
+
+                <p class="back_text">Sibel шпильки, 45мм., 500гр., черные</p>
+                <span>23.28 руб.</span>
+                <button class="card__button">В корзину</button>
+              </div>
+            </div>
+            <div class="card" id="9">
+              <div class="front">
+                <img src="img/31.jpg" alt="" />
+
+                <p class="back_text">
+                  EUROstil липучки-разделители, 2шт., Barber Line
+                </p>
+                <span>5.99 руб.</span>
+                <button class="card__button">В корзину</button>
+              </div>
+            </div>
+            <div class="card" id="10">
+              <div class="front">
+                <img src="img/33.jpg" alt="" />
+
+                <p class="back_text">BaByliss CROCO CLIP, уточки, 1шт.</p>
+                <span>2.29 руб.</span>
+                <button class="card__button">В корзину</button>
+              </div>
+            </div>
+            <div class="card" id="11">
+              <div class="front">
+                <img src="img/67.jpg" alt="" />
+
+                <p class="back_text">BaByliss плойка ProMIRACURL BAB2666E</p>
+                <span>352.45 руб.</span>
+                <button class="card__button">В корзину</button>
+              </div>
+            </div>
+          </div>
+          <div class="line">
+            <div class="card" id="12">
+              <div class="front">
+                <img src="img/35.jpg" alt="" />
+
+                <p class="back_text">
+                  Валик PROFI line для причесок, сетка с кнопкой, черный, 25см.
+                </p>
+                <span>5.59 руб.</span>
+                <button class="card__button">В корзину</button>
+              </div>
+            </div>
+            <div class="card" id="13">
+              <div class="front">
+                <img src="img/37.jpg" alt="" />
+
+                <p class="back_text">
+                  Валик PROFI line для причесок, круглый, коричневый, из
+                  искусственного волоса
+                </p>
+                <span>7.58 руб.</span>
+                <button class="card__button">В корзину</button>
+              </div>
+            </div>
+            <div class="card" id="14">
+              <div class="front">
+                <img src="img/54.jpg" alt="" />
+
+                <p class="back_text">
+                  Валик PROFI line для причесок, круглый, черный, из
+                  искусственного волоса
+                </p>
+                <span>7.58 руб.</span>
+                <button class="card__button">В корзину</button>
+              </div>
+            </div>
+            <div class="card" id="15">
+              <div class="front">
+                <img src="img/34.jpg" alt="" />
+
+                <p class="back_text">
+                  Валик PROFI line для причесок, круглый, белый, из
+                  искусственного волоса
+                </p>
+                <span>7.58 руб.</span>
+                <button class="card__button">В корзину</button>
+              </div>
+            </div>
+          </div>
+          <div class="line">
+            <div class="card" id="16">
+              <div class="front">
+                <img src="img/59.jpg" alt="" />
+
+                <p class="back_text">
+                  BaByliss плойка DIGICURL KERATIN LUSTRE IRON 10мм BAB2910E
+                </p>
+                <span>179.55 руб.</span>
+                <button class="card__button">В корзину</button>
+              </div>
+            </div>
+            <div class="card" id="17">
+              <div class="front">
+                <img src="img/62.jpg" alt="" />
+
+                <p class="back_text">
+                  BaByliss плойка DIGICURL KERATIN LUSTRE IRON 32мм BAB2914E
+                </p>
+                <span>199.50 руб.</span>
+                <button class="card__button">В корзину</button>
+              </div>
+            </div>
+            <div class="card" id="18">
+              <div class="front">
+                <img src="img/63.jpg" alt="" />
+
+                <p class="back_text">
+                  BaByliss плойка EXSTRA LONG 19мм BAB2472TDE
+                </p>
+                <span>159.60 руб.</span>
+                <button class="card__button">В корзину</button>
+              </div>
+            </div>
+            <div class="card" id="19">
+              <div class="front">
+                <img src="img/56.jpg" alt="" />
+
+                <p class="back_text">
+                  BaByliss плойка CONICAL IRON конус 13-25мм BAB2280TTE
+                </p>
+                <span>146.30 руб.</span>
+                <button class="card__button">В корзину</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main_about" id="about">
+        <div class="about_left">
+          <img class="about_left-img" src="img/78.png" alt="картинка" />
+        </div>
+        <div class="about_right">
+          <h1 class="about_right_title">Наши преимущества</h1>
+          <p>
+            «ParikMag» постоянно совершенствуется и ищет способы стать лучше,
+            качественнее и предосталяет самые различные удобства нашим клиентам
+          </p>
+          <ul>
+            <li>
+              <img src="./img/mark1.png" alt="" />
+              <b>Комфорт</b> -
+              <i>Мы предоставляем помощь нашим клиентам.</i>
+            </li>
+            <li>
+              <img src="./img/mark1.png" alt="" />
+              <b>Безопасность</b> -
+              <i>Вы оплачиваете покупку только после получения на руки</i>
+            </li>
+            <li>
+              <img src="./img/mark1.png" alt="" />
+              <b>Качество</b> -
+              <i>Мы работаем только с официальными поставщиками</i>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="reviews" id="reviews">
+        <h1 class="reviews_title">Отзывы клиентов</h1>
+        <div class="reviews_items">
+          <div class="reviews_item">
+            <div class="reviews_item-text">
+              Заказывал шейвер Andis ProFoil Lithium Plus TS-2. После оформления
+              заказа со мной быстро связались, отправили. Ровно сутки, товар уже
+              в моем городе и я его забрал. Так же в подарок прислали сменную
+              сеточку, за что огромное спасибо. Все супер, на высшем уровне,
+              рекомендую.
+            </div>
+            <div class="reviews_item-autor">Матвей Голубкин</div>
+          </div>
+          <div class="reviews_item">
+            <div class="reviews_item-text">
+              Вежливость, ответственность, оперативность, индивидуальный подход
+              и море позитива – это всё то, что ожидало меня на каждом этапе
+              общения. Очень рада, что остановила свой выбор на Parikmag.by,
+              только актуальная информация о товаре, наличие гарантии и
+              прекрасное соотношение: цена-качество..
+            </div>
+            <div class="reviews_item-autor">Мария Кравчук</div>
+          </div>
+          <div class="reviews_item">
+            <div class="reviews_item-text">
+              Фен просто супер , соответствует указанным параметрам . Легкий и
+              удобный в работе. Быстрая доставка! Спасибо !
+            </div>
+            <div class="reviews_item-autor">Витория Зайцева</div>
+          </div>
+          <div class="reviews_item">
+            <div class="reviews_item-text">
+              Заказ был доставлен в течение нескольких часов. Описание и цена
+              полностью соответствовали указанным на сайте. Спасибо за работу!
+            </div>
+            <div class="reviews_item-autor">Виталий Рымский</div>
+          </div>
+          <div class="reviews_item">
+            <div class="reviews_item-text">
+              Заказываем товары не первый раз, очень довольны работой и общением
+              с продавцом.Во первых очень приятный ,тактичный,вежливый
+              ,компетентный специалист.Хорошо знаком с товаром,Быстрое и удобное
+              оформление,разнообразные способы платежей.Вобщем все для удобства
+              и комфорта.Большое спасибо очень довольна!Рекомендую!
+            </div>
+            <div class="reviews_item-autor">Анонимный пользователь</div>
+          </div>
+          <div class="reviews_item">
+            <div class="reviews_item-text">
+              Заказывала второй раз. Всё отлично, доставка почтой, дошла посылка
+              через три дня. Продавец очень вежливый. Спасибо Игорь.
+              Рекомендую!!!
+            </div>
+            <div class="reviews_item-autor">Лидия Сквиртко</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact__form" id="form">
+        <div class="contact__wrapper">
+          <h1>Контакты</h1>
+          <p class="contact_subtitle">
+            Если у вас остались какие-либо вопросы, вы всегда можете написать
+            нашим менеджерам. Мы с радостью ответим на них!
+          </p>
+          <form action="./send.php" method="post">
+            <div class="form__inputs">
+              <p class="left">
+                Имя
+                <span class="red">*</span>
+                <input type="text" name="name" placeholder="Укажите Ваше имя" />
+              </p>
+              <p class="left">
+                Email
+                <span class="red">*</span>
+                <input
+                  type="text"
+                  name="email"
+                  placeholder="Укажите Ваш email"
+                />
+              </p>
+            </div>
+            <p class="left">
+              Сообщение
+              <span class="red">*</span>
+              <textarea name="text"></textarea>
+            </p>
+            <div class="button__block">
+              <input type="submit" value="Отправить" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer_leftSide">
+        <a href="#" class="footer_logo logo">Parikmag</a>
+        <div class="social">
+          <a href="#" class="social_link">
+            <img src="./img/facebook.png" alt="" />
+          </a>
+          <a href="#" class="social_link">
+            <img src="./img/twitter.png" alt="" />
+          </a>
+          <a href="#" class="social_link">
+            <img src="./img/facebook.png" alt="" />
+          </a>
+          <a href="#" class="social_link">
+            <img src="./img/twitter.png" alt="" />
+          </a>
+          <a href="#" class="social_link">
+            <img src="./img/facebook.png" alt="" />
+          </a>
+        </div>
+        <p class="footer_adress">
+          Наш адрес: 210015, г. Витебск, ул. Смоленская, д. 8, пом. 10
+        </p>
+      </div>
+      <div class="footer_rightSide">
+        <div class="footer_side-card">
+          <a href="#reviews" class="footer_side-link">Отзывы</a>
+          <a href="#about" class="footer_side-link">О нас</a>
+          <a href="#" class="footer_side-link">На главную страницу</a>
+        </div>
+        <div class="footer_side-card">
+          <a href="#openModal" class="footer_side-link">Ваша корзина</a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="container">
+      <div id="openModal" class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title">Вот ваши покупки:</h3>
+              <h3 class="modal-title">Спасибо, что выбираете нас!</h3>
+              <a href="#close" title="Close" class="close">×</a>
+            </div>
+            <div class="modal-body">
+              <div id="basket" class="basket"></div>
+              <div class="basket_footer">
+                <p class="basket_totalPrice-title">Сумма:</p>
+                <div class="basket_totalPrice" id="totalPrice">0</div>
+                <button class="basket_buy" id="buy">Купить</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var scrollbar = document.body.clientWidth - window.innerWidth + "px";
+        console.log(scrollbar);
+        document
+          .querySelector('[href="#openModal"]')
+          .addEventListener("click", function () {
+            document.body.style.overflow = "hidden";
+            document.querySelector("#openModal").style.marginLeft = scrollbar;
+          });
+        document
+          .querySelector('[href="#close"]')
+          .addEventListener("click", function () {
+            document.body.style.overflow = "visible";
+            document.querySelector("#openModal").style.marginLeft = "0px";
+          });
+      });
+    </script>
+  </body>
+</html>

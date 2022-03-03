@@ -1,0 +1,829 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 900;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+input {
+  width: 360px;
+  height: 40px;
+  font-size: 20px;
+  margin-bottom: 30px;
+  margin-right: 30px;
+}
+input:first-of-type {
+  margin-right: 28px;
+}
+textarea {
+  width: 100%;
+  height: 163px;
+}
+input,
+textarea {
+  border: 1px solid #999;
+  margin-top: 5px;
+  font-size: 16px;
+  padding: 0px 10px;
+}
+textarea {
+  padding: 10px;
+}
+li {
+  list-style: none;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(90deg, #6948ff, #866bff);
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+}
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #6948ff, #866bff);
+  z-index: 5;
+}
+.header__logo {
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 800;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 12%;
+  z-index: 11;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20%;
+  z-index: 6;
+}
+.topnav {
+  width: 100%;
+  height: 30px;
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+.nav_link {
+  color: #fff;
+  text-align: center;
+  margin: 12px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: 0.2s;
+  border-bottom: 3px solid transparent;
+}
+.nav_link:hover {
+  border-bottom: 3px solid #866bff;
+}
+.topnav .icon {
+  display: none;
+  color: #fff;
+  font-size: 20px;
+}
+.basket_link {
+  margin-left: 20px;
+  border: 0;
+}
+.basket_img {
+  width: 37px;
+  height: 35px;
+}
+/* -----------------------------------стили для страницы корзины ---------------------------------------------------- */
+.welcome {
+  text-align: center;
+  margin-top: 20px;
+}
+.back_link {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  width: 30px;
+  height: 30px;
+}
+.back_link img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* ----------------------------- стили модального окна по умолчанию ---------------------------------------------------- */
+.modal {
+  position: fixed;
+  /* фиксированное положение */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  /* цвет фона */
+  z-index: 1050;
+  opacity: 0;
+  /* по умолчанию модальное окно прозрачно */
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  /* анимация перехода */
+  pointer-events: none;
+  /* элемент невидим для событий мыши */
+}
+
+/* при отображении модального окно */
+.modal:target {
+  opacity: 1;
+  pointer-events: auto;
+  overflow-y: auto;
+}
+
+/* ширина модального окна и его отступы от экрана */
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 900px;
+    margin: 30px auto;
+  }
+}
+
+/* свойства для блока, содержащего контент модального окна */
+.modal-content {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* свойства для заголовка модального окна */
+.modal-header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 15px;
+  border-bottom: 1px solid #eceeef;
+}
+
+.modal-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+  font-size: 1.25rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* свойства для кнопки "Закрыть" */
+.close {
+  float: right;
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+/* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
+.close:focus,
+.close:hover {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+/* свойства для блока, содержащего основное содержимое окна */
+.modal-body {
+  width: 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px 0;
+}
+/* ---------------------------- стили корзины ----------------------------------------- */
+.basket {
+  width: 90%;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.basket_item {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 15px;
+  background: linear-gradient(90deg, #6948ff, #866bff);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding: 5px 10px;
+  color: #fff;
+}
+.basket_item-text {
+  font-size: 18px;
+  width: 70%;
+  margin-right: 10px;
+  overflow: hidden;
+}
+.basket_item-price {
+  width: 100px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 20px;
+}
+.basket_numbers {
+  min-width: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 15px;
+}
+.basket_button {
+  width: 26px;
+  min-width: 26px;
+  height: 26px;
+  min-height: 26px;
+  border-radius: 13px;
+  border: 0;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #fff;
+}
+.basket_item-number {
+  min-width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.basket_footer {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.basket_totalPrice-title,
+.basket_totalPrice {
+  font-size: 18px;
+  color: #6948ff;
+  margin-right: 10px;
+}
+.basket_buy {
+  height: 40px;
+  padding: 0 20px;
+  background: #6948ff;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 17px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+main {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  width: 100%;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+}
+.main__welcome {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
+    url("./img/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: top;
+  text-align: center;
+  padding: 250px 50px 250px 0px;
+}
+.main__welcome p {
+  color: #d4d4d4;
+  font-size: 20px;
+}
+.main__welcome h1 {
+  color: #000;
+  font-size: 80px;
+  font-weight: 900;
+}
+.main__welcome h1:after {
+  display: none;
+}
+.mycompany {
+  color: #6948ff;
+  font-weight: 900;
+  font-size: 106px;
+}
+.main_about {
+  background: linear-gradient(90deg, #6948ff, #866bff);
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  width: 100%;
+}
+.about_left {
+  width: 40%;
+  position: relative;
+}
+.about_left-img {
+  width: 100%;
+  height: 100%;
+}
+.about_right {
+  width: 40%;
+  margin-top: 20px;
+  margin-left: 120px;
+  color: #000;
+}
+.about_right_title {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  font-size: 34px;
+}
+.about_right p {
+  margin: 30px 0px 50px 0px;
+  color: #fff;
+}
+.about_right li {
+  margin: 10px;
+  font-size: 18px;
+  color: #000;
+}
+.about_right li img {
+  margin-right: 5px;
+  margin-bottom: -2px;
+}
+.mw-100 {
+  min-width: 100%;
+}
+
+.reviews {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.reviews_title {
+  color: #000;
+  font-size: 30px;
+  text-align: center;
+  margin: 30px 0;
+}
+.reviews_items {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.reviews_item {
+  position: relative;
+  width: 43%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: linear-gradient(90deg, #6948ff, #866bff);
+  border-radius: 3px;
+  transition: 0.4s;
+  border-radius: 10px;
+  margin: 15px;
+  padding: 20px;
+}
+.reviews_item:hover {
+  transform: scale3d(1.1);
+}
+.reviews_item-text {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.reviews_item-autor {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  color: #fff;
+}
+
+.main__work {
+  text-align: center;
+  padding: 50px 0;
+}
+.main__work h1 {
+  margin-bottom: 30px;
+}
+.main__work-p {
+  margin-bottom: 35px;
+  color: #6c6c6c;
+}
+.main__work img {
+  margin: 5px;
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.card {
+  position: relative;
+  width: 25%;
+  height: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 200px;
+  margin: 10px;
+  padding: 15px;
+  border: 1px #6c6c6c solid;
+}
+.card__button {
+  width: 150px;
+  height: 40px;
+  background-color: #866bff;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  border: 0;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 20px;
+  left: auto;
+  cursor: pointer;
+}
+.card__button-active {
+  background-color: #fff;
+  color: #6948ff;
+  border: 2px solid #6948ff;
+}
+.front {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  max-width: 180px;
+  height: 400px;
+  transition: transform 0.4s linear;
+}
+.front img {
+  height: 45%;
+  width: 95%;
+  object-fit: contain;
+  cursor: auto;
+}
+.back_text {
+  font-size: 16px;
+  font-weight: 900;
+  height: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #000;
+}
+.line {
+  display: flex;
+  justify-content: center;
+}
+.contact__wrapper {
+  width: 57%;
+  margin: 0 auto;
+  color: #636363;
+}
+.front span {
+  margin: 10px 0px;
+}
+.red {
+  color: red;
+}
+.form__inputs {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+}
+.left {
+  text-align: left;
+}
+.button__block {
+  width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+  padding-left: 25px;
+  border-radius: 15px;
+}
+input[type="submit"] {
+  border-radius: 15px;
+  width: 160px;
+  height: 40px;
+  background: #fff;
+  color: #866bff;
+  font-weight: 400;
+  margin-right: 0 auto;
+
+  font-size: 20px;
+}
+.form__inputs {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+}
+.contact_subtitle {
+  margin-bottom: 25px;
+}
+.contact__form h1 {
+  text-align: center;
+  color: #000;
+}
+.contact__form {
+  width: 100%;
+  text-align: center;
+  padding: 100px 0;
+}
+.button__block {
+  margin-top: 10px;
+}
+
+.social {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 24px;
+  margin-top: 10px;
+}
+.social a {
+  color: #fff;
+}
+.social img {
+  margin-right: 12px;
+}
+.social img:hover {
+  opacity: 0.5;
+}
+.footer_adress {
+  margin-top: 15px;
+  color: #fff;
+}
+.logo {
+  color: #fff;
+}
+.social img:hover {
+  opacity: 0.5;
+}
+
+.footer {
+  width: 100%;
+  height: auto;
+  background: linear-gradient(90deg, #6948ff, #866bff);
+  padding: 30px 0;
+  display: flex;
+  justify-content: start;
+}
+.footer_leftSide {
+  width: 300px;
+  padding: 30px 0 0 30px;
+  display: flex;
+  flex-direction: column;
+}
+.footer_logo {
+  font-size: 30px;
+}
+.footer_rightSide {
+  display: flex;
+  padding: 30px 0;
+  width: 70%;
+  justify-content: flex-start;
+}
+.footer_side-card {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.footer_side-link {
+  color: #fff;
+  margin: 5px 0;
+}
+
+@media screen and (max-width: 1200px) {
+  nav {
+    margin-left: 20%;
+  }
+}
+
+@media screen and (max-width: 1105px) {
+  nav {
+    margin-left: 10%;
+  }
+}
+@media screen and (max-width: 1010px) {
+  nav {
+    margin: 0;
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(90deg, #6948ff, #866bff);
+    transition: 0.3s;
+    z-index: 10;
+  }
+  nav:target {
+    top: -100%;
+  }
+  .active {
+    top: 0;
+  }
+  .topnav .icon {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    font-size: 22px;
+  }
+  .topnav {
+    display: relative;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 10%;
+    padding-top: 10%;
+  }
+  main .main__welcome {
+    padding: 200px 0px 200px 0px;
+  }
+  main .main__welcome h1 {
+    font-size: 25px;
+  }
+  main .main__welcome p {
+    font-size: 14px;
+  }
+  .mycompany {
+    font-size: 60px;
+  }
+  .mw-100 {
+    max-width: 100%;
+  }
+  .main_about {
+    flex-direction: column;
+  }
+  .about_right {
+    text-align: center;
+    margin-left: 0;
+  }
+  .about_right li {
+    text-align: left;
+  }
+  .about_right h1 {
+    margin-top: 10px;
+    font-style: 20px;
+  }
+  .team__cards {
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+  }
+  .services__cards {
+    grid-template-columns: auto;
+  }
+
+  .line .card:not(:first-child, :nth-child(2)) {
+    display: none;
+  }
+  .card {
+    width: 50%;
+  }
+  .contact__form h1 {
+    text-align: center;
+  }
+  .main__testimonials p {
+    font-size: 14px;
+  }
+  .form__inputs {
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+  }
+  input {
+    width: 100%;
+  }
+  .reviews_item {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 650px) {
+}
+@media screen and (max-width: 360px) {
+  .basket_numbers {
+    width: 12%;
+  }
+  .basket_item-text {
+    font-size: 12px;
+  }
+  .basket_item-price {
+    min-width: none;
+    width: 50px;
+    font-size: 14px;
+  }
+  .basket_button {
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    min-height: 20px;
+  }
+}
